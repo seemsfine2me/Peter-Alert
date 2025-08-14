@@ -1,9 +1,9 @@
-#imports tkinter
+#imports tkinter,time, and random 
 import tkinter as tk
 from tkinter import *
 import time 
 import random
-#imports pillow form the Python Image Libary or somthing 
+#Imports Image and ImageTk for thw image file
 from PIL import Image, ImageTk
 #numeber lists
 list = [1, 2, 3 ,4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
@@ -12,8 +12,10 @@ list2 = [1,2,3,4,5,6,7,9,10,11,12,13]
 rizz = True
 #def ran
 def ran():
+    #makes the 'rizz' var global
     global rizz
     if rizz:
+        #makes the 'var' global
         global run 
         run = random.choice(list)
     if run == 8:
@@ -26,7 +28,7 @@ def ran():
     if root.destroy:
         ran()
     
-#def the tkinter stuff
+#def main
 def main():
     #bare bones stuff
     global root 
